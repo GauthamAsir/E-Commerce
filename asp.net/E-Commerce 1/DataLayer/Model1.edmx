@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ecommerce1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PorductId" Type="int" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerDetails">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ecommerce1.dbo.LoginCredentials' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LoginCredentials">
+          <Key>
+            <PropertyRef Name="LoginPassword" />
+          </Key>
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="LoginPassword" Type="varbinary(max)" Nullable="false" />
+          <Property Name="LastUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="OrderPlacedOn" Type="datetime" Nullable="false" />
+          <Property Name="LastModifiedOn" Type="datetime" />
+          <Property Name="LastModifiedBy" Type="int" />
+          <Property Name="OrderStatusId" Type="int" />
+          <Property Name="OrderMessage" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ProductDetails">
+          <Key>
+            <PropertyRef Name="PorductId" />
+          </Key>
+          <Property Name="PorductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PorductName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+          <Property Name="AddedOn" Type="datetime" Nullable="false" />
+          <Property Name="ProductPrice" Type="money" Nullable="false" />
+          <Property Name="AddedBy" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="ProductQuantity" Type="int" />
+          <Property Name="ProductImage" Type="varchar(max)" />
+          <Property Name="LastModifiedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="RoleDetails">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__Categorie__Pordu__44FF419A">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="0..1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="PorductId" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="PorductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerD__RoleI__3A81B327">
+          <End Role="RoleDetails" Type="Self.RoleDetails" Multiplicity="0..1" />
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleDetails">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="CustomerDetails">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoginCred__Custo__3D5E1FD2">
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="0..1" />
+          <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Custo__4AB81AF0">
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__LastM__4BAC3F29">
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="LastModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__4CA06362">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__Added__412EB0B6">
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__LastM__4222D4EF">
+          <End Role="CustomerDetails" Type="Self.CustomerDetails" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="LastModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_AddCustIdandPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="custid" Type="int" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_AddCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cUserName" Type="varchar" Mode="In" />
+          <Parameter Name="fName" Type="varchar" Mode="In" />
+          <Parameter Name="lName" Type="varchar" Mode="In" />
+          <Parameter Name="dob" Type="date" Mode="In" />
+          <Parameter Name="phone" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="roleId" Type="int" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="success" Type="bit" Mode="InOut" />
+          <Parameter Name="custId" Type="int" Mode="InOut" />
+          <Parameter Name="message" Type="varchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="sp_AddProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pName" Type="varchar" Mode="In" />
+          <Parameter Name="pDesc" Type="varchar" Mode="In" />
+          <Parameter Name="pPrice" Type="money" Mode="In" />
+          <Parameter Name="AddedBy" Type="int" Mode="In" />
+          <Parameter Name="pQuantity" Type="int" Mode="In" />
+          <Parameter Name="pImage" Type="varchar(max)" Mode="In" />
+          <Parameter Name="success" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="sp_GetAllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetAvailableRoles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetCustomerDetailsByEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetCustomerDetailsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="success" Type="int" Mode="InOut" />
+          <Parameter Name="roleid" Type="int" Mode="InOut" />
+          <Parameter Name="cid" Type="int" Mode="InOut" />
+          <Parameter Name="custName" Type="varchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="ecommerce1ModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerDetails" EntityType="Self.CustomerDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleDetails" EntityType="Self.RoleDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LoginCredentials].[CustomerId] AS [CustomerId], 
+    [LoginCredentials].[LoginPassword] AS [LoginPassword], 
+    [LoginCredentials].[LastUpdated] AS [LastUpdated]
+    FROM [dbo].[LoginCredentials] AS [LoginCredentials]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Categorie__Pordu__44FF419A" Association="Self.FK__Categorie__Pordu__44FF419A">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerD__RoleI__3A81B327" Association="Self.FK__CustomerD__RoleI__3A81B327">
+            <End Role="RoleDetails" EntitySet="RoleDetails" />
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoginCred__Custo__3D5E1FD2" Association="Self.FK__LoginCred__Custo__3D5E1FD2">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Custo__4AB81AF0" Association="Self.FK__OrderDeta__Custo__4AB81AF0">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__LastM__4BAC3F29" Association="Self.FK__OrderDeta__LastM__4BAC3F29">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__4CA06362" Association="Self.FK__OrderDeta__Order__4CA06362">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__Added__412EB0B6" Association="Self.FK__ProductDe__Added__412EB0B6">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__LastM__4222D4EF" Association="Self.FK__ProductDe__LastM__4222D4EF">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ecommerce1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PorductId" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ProductDetail" Relationship="Self.FK__Categorie__Pordu__44FF419A" FromRole="Categories" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="CustomerDetail">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ContactNo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RoleDetail" Relationship="Self.FK__CustomerD__RoleI__3A81B327" FromRole="CustomerDetails" ToRole="RoleDetails" />
+          <NavigationProperty Name="LoginCredentials" Relationship="Self.FK__LoginCred__Custo__3D5E1FD2" FromRole="CustomerDetails" ToRole="LoginCredentials" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Custo__4AB81AF0" FromRole="CustomerDetails" ToRole="OrderDetails" />
+          <NavigationProperty Name="OrderDetails1" Relationship="Self.FK__OrderDeta__LastM__4BAC3F29" FromRole="CustomerDetails" ToRole="OrderDetails" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.FK__ProductDe__Added__412EB0B6" FromRole="CustomerDetails" ToRole="ProductDetails" />
+          <NavigationProperty Name="ProductDetails1" Relationship="Self.FK__ProductDe__LastM__4222D4EF" FromRole="CustomerDetails" ToRole="ProductDetails" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="OrderPlacedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="LastModifiedBy" Type="Int32" />
+          <Property Name="OrderStatusId" Type="Int32" />
+          <Property Name="OrderMessage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CustomerDetail" Relationship="Self.FK__OrderDeta__Custo__4AB81AF0" FromRole="OrderDetails" ToRole="CustomerDetails" />
+          <NavigationProperty Name="CustomerDetail1" Relationship="Self.FK__OrderDeta__LastM__4BAC3F29" FromRole="OrderDetails" ToRole="CustomerDetails" />
+          <NavigationProperty Name="OrderStatu" Relationship="Self.FK__OrderDeta__Order__4CA06362" FromRole="OrderDetails" ToRole="OrderStatus" />
+        </EntityType>
+        <EntityType Name="OrderStatu">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__4CA06362" FromRole="OrderStatus" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="PorductId" />
+          </Key>
+          <Property Name="PorductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PorductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="AddedBy" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="ProductQuantity" Type="Int32" />
+          <Property Name="ProductImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastModifiedBy" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__Categorie__Pordu__44FF419A" FromRole="ProductDetails" ToRole="Categories" />
+          <NavigationProperty Name="CustomerDetail" Relationship="Self.FK__ProductDe__Added__412EB0B6" FromRole="ProductDetails" ToRole="CustomerDetails" />
+          <NavigationProperty Name="CustomerDetail1" Relationship="Self.FK__ProductDe__LastM__4222D4EF" FromRole="ProductDetails" ToRole="CustomerDetails" />
+        </EntityType>
+        <EntityType Name="RoleDetail">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CustomerDetails" Relationship="Self.FK__CustomerD__RoleI__3A81B327" FromRole="RoleDetails" ToRole="CustomerDetails" />
+        </EntityType>
+        <EntityType Name="LoginCredential">
+          <Key>
+            <PropertyRef Name="LoginPassword" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="LoginPassword" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CustomerDetail" Relationship="Self.FK__LoginCred__Custo__3D5E1FD2" FromRole="LoginCredentials" ToRole="CustomerDetails" />
+        </EntityType>
+        <Association Name="FK__Categorie__Pordu__44FF419A">
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="0..1" />
+          <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="PorductId" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="PorductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CustomerD__RoleI__3A81B327">
+          <End Role="RoleDetails" Type="Self.RoleDetail" Multiplicity="0..1" />
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleDetails">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="CustomerDetails">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LoginCred__Custo__3D5E1FD2">
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="0..1" />
+          <End Role="LoginCredentials" Type="Self.LoginCredential" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Custo__4AB81AF0">
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__LastM__4BAC3F29">
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="LastModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__Added__412EB0B6">
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductDe__LastM__4222D4EF">
+          <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerDetails">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="LastModifiedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDeta__Order__4CA06362">
+          <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="CustomerDetails" EntityType="Self.CustomerDetail" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+          <EntitySet Name="RoleDetails" EntityType="Self.RoleDetail" />
+          <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredential" />
+          <AssociationSet Name="FK__Categorie__Pordu__44FF419A" Association="Self.FK__Categorie__Pordu__44FF419A">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CustomerD__RoleI__3A81B327" Association="Self.FK__CustomerD__RoleI__3A81B327">
+            <End Role="RoleDetails" EntitySet="RoleDetails" />
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoginCred__Custo__3D5E1FD2" Association="Self.FK__LoginCred__Custo__3D5E1FD2">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Custo__4AB81AF0" Association="Self.FK__OrderDeta__Custo__4AB81AF0">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__LastM__4BAC3F29" Association="Self.FK__OrderDeta__LastM__4BAC3F29">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__Added__412EB0B6" Association="Self.FK__ProductDe__Added__412EB0B6">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductDe__LastM__4222D4EF" Association="Self.FK__ProductDe__LastM__4222D4EF">
+            <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__4CA06362" Association="Self.FK__OrderDeta__Order__4CA06362">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <FunctionImport Name="sp_AddCustIdandPassword">
+            <Parameter Name="custid" Mode="In" Type="Int32" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AddCustomer">
+            <Parameter Name="cUserName" Mode="In" Type="String" />
+            <Parameter Name="fName" Mode="In" Type="String" />
+            <Parameter Name="lName" Mode="In" Type="String" />
+            <Parameter Name="dob" Mode="In" Type="DateTime" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="success" Mode="InOut" Type="Boolean" />
+            <Parameter Name="custId" Mode="InOut" Type="Int32" />
+            <Parameter Name="message" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AddProduct">
+            <Parameter Name="pName" Mode="In" Type="String" />
+            <Parameter Name="pDesc" Mode="In" Type="String" />
+            <Parameter Name="pPrice" Mode="In" Type="Decimal" />
+            <Parameter Name="AddedBy" Mode="In" Type="Int32" />
+            <Parameter Name="pQuantity" Mode="In" Type="Int32" />
+            <Parameter Name="pImage" Mode="In" Type="String" />
+            <Parameter Name="success" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetAllProducts" ReturnType="Collection(ecommerce1Model.sp_GetAllProducts_Result)" />
+          <FunctionImport Name="sp_GetAvailableRoles" ReturnType="Collection(ecommerce1Model.sp_GetAvailableRoles_Result)" />
+          <FunctionImport Name="sp_GetCustomerDetailsByEmail" ReturnType="Collection(ecommerce1Model.sp_GetCustomerDetailsByEmail_Result)">
+          <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetCustomerDetailsById" ReturnType="Collection(ecommerce1Model.sp_GetCustomerDetailsById_Result)">
+          <Parameter Name="cid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_login">
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="success" Mode="InOut" Type="Int32" />
+            <Parameter Name="roleid" Mode="InOut" Type="Int32" />
+            <Parameter Name="cid" Mode="InOut" Type="Int32" />
+            <Parameter Name="custName" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetAllProducts_Result">
+          <Property Type="Int32" Name="PorductId" Nullable="false" />
+          <Property Type="String" Name="PorductName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ProductDescription" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="LastModified" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="AddedOn" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="ProductPrice" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="AddedBy" Nullable="true" />
+          <Property Type="Boolean" Name="isDeleted" Nullable="true" />
+          <Property Type="Int32" Name="ProductQuantity" Nullable="true" />
+          <Property Type="String" Name="ProductImage" Nullable="true" />
+          <Property Type="Int32" Name="LastModifiedBy" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_GetAvailableRoles_Result">
+          <Property Type="Int32" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_GetCustomerDetailsByEmail_Result">
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="RoleId" Nullable="true" />
+          <Property Type="String" Name="CustomerAddress" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_GetCustomerDetailsById_Result">
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" />
+          <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="30" />
+          <Property Type="Int32" Name="RoleId" Nullable="true" />
+          <Property Type="String" Name="CustomerAddress" Nullable="true" MaxLength="200" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ecommerce1ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ecommerce1Model.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="PorductId" ColumnName="PorductId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerDetails">
+            <EntityTypeMapping TypeName="ecommerce1Model.CustomerDetail">
+              <MappingFragment StoreEntitySet="CustomerDetails">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="ecommerce1Model.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="OrderPlacedOn" ColumnName="OrderPlacedOn" />
+                <ScalarProperty Name="LastModifiedOn" ColumnName="LastModifiedOn" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+                <ScalarProperty Name="OrderMessage" ColumnName="OrderMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="ecommerce1Model.OrderStatu">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="ecommerce1Model.ProductDetail">
+              <MappingFragment StoreEntitySet="ProductDetails">
+                <ScalarProperty Name="PorductId" ColumnName="PorductId" />
+                <ScalarProperty Name="PorductName" ColumnName="PorductName" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleDetails">
+            <EntityTypeMapping TypeName="ecommerce1Model.RoleDetail">
+              <MappingFragment StoreEntitySet="RoleDetails">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginCredentials">
+            <EntityTypeMapping TypeName="ecommerce1Model.LoginCredential">
+              <MappingFragment StoreEntitySet="LoginCredentials">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_AddCustIdandPassword" FunctionName="ecommerce1Model.Store.sp_AddCustIdandPassword" />
+          <FunctionImportMapping FunctionImportName="sp_AddCustomer" FunctionName="ecommerce1Model.Store.sp_AddCustomer" />
+          <FunctionImportMapping FunctionImportName="sp_AddProduct" FunctionName="ecommerce1Model.Store.sp_AddProduct" />
+          <FunctionImportMapping FunctionImportName="sp_GetAllProducts" FunctionName="ecommerce1Model.Store.sp_GetAllProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ecommerce1Model.sp_GetAllProducts_Result">
+                <ScalarProperty Name="PorductId" ColumnName="PorductId" />
+                <ScalarProperty Name="PorductName" ColumnName="PorductName" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="AddedOn" ColumnName="AddedOn" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAvailableRoles" FunctionName="ecommerce1Model.Store.sp_GetAvailableRoles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ecommerce1Model.sp_GetAvailableRoles_Result">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetCustomerDetailsByEmail" FunctionName="ecommerce1Model.Store.sp_GetCustomerDetailsByEmail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ecommerce1Model.sp_GetCustomerDetailsByEmail_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetCustomerDetailsById" FunctionName="ecommerce1Model.Store.sp_GetCustomerDetailsById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ecommerce1Model.sp_GetCustomerDetailsById_Result">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_login" FunctionName="ecommerce1Model.Store.sp_login" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,12 @@
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\DataLayer.dll.config
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\DataLayer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\DataLayer.pdb
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\EntityFramework.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\EntityFramework.xml
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\obj\Debug\DataLayer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\DataLayer\obj\Debug\DataLayer.pdb

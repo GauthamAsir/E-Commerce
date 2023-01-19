@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Activities</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Activities.MembershipActivitiesLogger">
+            <summary>
+            Public service for activity logging in online marketing.
+            </summary>
+        </member>
+        <member name="M:Kentico.Activities.MembershipActivitiesLogger.LogLoginActivity(System.String)">
+            <summary>
+            Logs login activity for given user.
+            </summary>
+            <remarks>
+            This method should be called whenever the user is authenticated to ensure logging of correct <see cref="T:CMS.Activities.ActivityInfo"/>.
+            </remarks>
+            <param name="userName">User name of the authenticated user</param>
+        </member>
+        <member name="M:Kentico.Activities.MembershipActivitiesLogger.LogRegisterActivity(System.String)">
+            <summary>
+            Logs user registration activity for given user.
+            </summary>
+            <remarks>
+            This method should be called whenever the user is registered to ensure logging of correct <see cref="T:CMS.Activities.ActivityInfo"/>.
+            </remarks>
+            <param name="userName">User name of the registered user</param>
+        </member>
+        <member name="T:Kentico.Activities.ActivityMvcUrlService">
+            <summary>
+            Provides methods to get correct URL and URL referrer to insert in <see cref="T:CMS.Activities.IActivityInfo" /> for MVC.
+            </summary>
+        </member>
+        <member name="M:Kentico.Activities.ActivityMvcUrlService.GetActivityUrl">
+            <summary>
+            Gets URL of request the activity was logged for. In this case it is equal to referrer.
+            </summary>
+            <returns>URL</returns>
+        </member>
+        <member name="M:Kentico.Activities.ActivityMvcUrlService.GetActivityUrlReferrer">
+            <summary>
+            Gets URL referrer of request the activity was referred from. Empty string in this case.
+            </summary>
+            <returns>Empty string</returns>
+        </member>
+        <member name="T:Kentico.Activities.EcommerceActivityLogger">
+            <summary>
+            Provides possibility to log E-commerce activities. This class should be always used instead of <see cref="T:CMS.Ecommerce.EcommerceActivityLogger"/> to make sure
+            proper implementation of <see cref="T:CMS.Activities.IActivityUrlService"/> is used.
+            </summary>
+        </member>
+        <member name="T:Kentico.Activities.IMembershipActivitiesLogger">
+            <summary>
+            Provides methods for membership activities logging.
+            </summary>
+        </member>
+        <member name="M:Kentico.Activities.IMembershipActivitiesLogger.LogLoginActivity(System.String)">
+            <summary>
+            Logs login activity for given user.
+            </summary>
+            <remarks>
+            This method should be called whenever the user is authenticated to ensure logging of correct <see cref="T:CMS.Activities.ActivityInfo"/>.
+            </remarks>
+            <param name="userName">User name of the authenticated user</param>
+        </member>
+        <member name="M:Kentico.Activities.IMembershipActivitiesLogger.LogRegisterActivity(System.String)">
+            <summary>
+            Logs user registration activity for given user.
+            </summary>
+            <remarks>
+            This method should be called whenever the user is registered to ensure logging of correct <see cref="T:CMS.Activities.ActivityInfo"/>.
+            </remarks>
+            <param name="userName">User name of the registered user</param>
+        </member>
+    </members>
+</doc>

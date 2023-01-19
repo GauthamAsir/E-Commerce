@@ -1,0 +1,165 @@
+﻿@model IEnumerable<BusinessLayer.Models.ProductDetails>
+@using Kentico.Ecommerce
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .product_grid {
+        float: left;
+        width: 45%;
+        padding: 10px;
+        object-fit: contain;
+    }
+
+    .product_grid_hover {
+        float: left;
+        width: 45%;
+        padding: 10px;
+        object-fit: contain;
+        margin: 12px;
+        border: ridge;
+        border-color: #000000;
+        border-radius: 10px
+    }
+</style>
+
+@section scripts{
+    <script>
+
+        $(document).ready(function () {
+            console.log("ready!");
+            $(function () {
+
+                var products = @Html.Raw(Json.Encode(Model));
+                $.each(products, function (index, item) {
+                    var id = index;
+                    $(id).hover(function () {
+
+                        $(id).toggleClass('product_grid_hover');
+                    });
+                });
+            })
+
+        });
+
+    </script>
+}
+
+
+
+<h2>Index</h2>
+
+<div>
+    @foreach (var item in Model)
+    {
+        <div id="@item.PorductId" class="product_grid">
+            <a style="justify-content: center" href="@Url.RouteUrl("Product", new {id = item.PorductId, productAlias = item.PorductName})">
+
+                <div style="text-align: left;">
+                    <img src="@Html.Raw(item.ProductImage)" height="120"
+                         alt="@item.PorductName _ @item.PorductId" align="left">
+                </div>
+
+                <h4 style="justify-content: flex-start; display: flex; align-items: center; ">@item.PorductName</h4>
+
+                <div style="justify-content: flex-start; display: flex; align-items: center; ">
+                    <span>@item.ProductPrice Rs.</span>
+                </div>
+
+                @*<p>
+                        <img src="@Html.Raw(item.ProductImage)" height="120" class="product_grid" alt="@item.PorductName _ @item.PorductId">
+                        @item.PorductName
+                    </p>*@
+            </a>
+        </div>
+    }
+</div>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+        Product Count @ViewBag.products.Count
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PorductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PorductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PorductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PorductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductImage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@

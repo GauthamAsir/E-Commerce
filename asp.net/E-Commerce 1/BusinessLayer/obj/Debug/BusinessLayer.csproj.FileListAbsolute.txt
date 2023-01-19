@@ -1,0 +1,14 @@
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\EntityFramework.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\EntityFramework.xml
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\000_OLD_FILES\.NET_projects\e-commerce1\E-Commerce 1\BusinessLayer\obj\Debug\BusinessLayer.pdb

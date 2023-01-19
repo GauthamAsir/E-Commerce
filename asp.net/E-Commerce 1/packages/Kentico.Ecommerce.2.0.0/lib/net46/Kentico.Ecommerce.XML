@@ -1,0 +1,1320 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Ecommerce</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Ecommerce.Currency">
+            <summary>
+            Represents a currency of prices and provides a formatting method for the price.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Currency.CurrencyCode">
+            <summary>
+            Standard three-letter currency code.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Currency.#ctor(CMS.Ecommerce.CurrencyInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.Currency"/> class.
+            </summary>
+            <param name="currency"><see cref="T:CMS.Ecommerce.CurrencyInfo"/> object representing an original Kentico currency info object from which the model is created</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.Currency.FormatPrice(System.Decimal)">
+            <summary>
+            Returns a string with the formatted price according to the original format string (<see cref="P:CMS.Ecommerce.CurrencyInfo.CurrencyFormatString"/>).
+            </summary>
+            <param name="price">Price amount to be formatted.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.CustomerAddress">
+            <summary>
+            Represents a customer's address.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.CustomerAddress.OriginalAddress">
+            <summary>
+            Original Kentico address info object from which the model gathers information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.PersonalName">
+            <summary>
+            Address's personal name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.Line1">
+            <summary>
+            Address's line 1. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.Line2">
+            <summary>
+            Address's line 2. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.City">
+            <summary>
+            Address's city.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.PostalCode">
+            <summary>
+            Address's postal code.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.ID">
+            <summary>
+            Address's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.CountryID">
+            <summary>
+            Country's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.StateID">
+            <summary>
+            State's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.Country">
+            <summary>
+            Address's country. See <see cref="T:CMS.Globalization.CountryInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.State">
+            <summary>
+            Address's state. See <see cref="T:CMS.Globalization.StateInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddress.Name">
+            <summary>
+            Gets an address name created from the address parameters. The format is [personal or company name], [address line 1], [address line 2], [city].
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddress.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.CustomerAddress"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddress.#ctor(CMS.Ecommerce.AddressInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.CustomerAddress"/> class.
+            </summary>
+            <param name="originalAddress"><see cref="T:CMS.Ecommerce.AddressInfo"/> object representing an original Kentico address info object from which the model is created.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddress.Validate">
+            <summary>
+            Validates the customer address.
+            </summary>
+            <returns>Instance of the <see cref="T:Kentico.Ecommerce.CustomerAddressValidator"/> with validation summary.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddress.Save(System.Boolean)">
+            <summary>
+            Saves the address into the database.
+            </summary>
+            <param name="validate">Specifies whether the validation should be performed.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.Customer">
+            <summary>
+            Represents a customer.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.Customer.OriginalCustomer">
+            <summary>
+            Original Kentico customer info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.CustomerInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.ID">
+            <summary>
+            Get the customer's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.FirstName">
+            <summary>
+            Customer's first name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.LastName">
+            <summary>
+            Customer's last name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.Email">
+            <summary>
+            Customer's e-mail.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.PhoneNumber">
+            <summary>
+            Customer's phone number.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.Company">
+            <summary>
+            Customer's company name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.OrganizationID">
+            <summary>
+            Customer's organization ID.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.TaxRegistrationID">
+            <summary>
+            Customer's tax registration ID.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Customer.IsCompanyAccount">
+            <summary>
+            Indicates if the customer represents a company account (Company name, Tax reg. ID or Organization ID is submitted).
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Customer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.Customer"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Customer.#ctor(CMS.Ecommerce.CustomerInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.Customer"/> class.
+            </summary>
+            <param name="originalCustomer"><see cref="T:CMS.Ecommerce.CustomerInfo"/> object representing an original Kentico customer info object from which the model is created.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.Customer.Validate">
+            <summary>
+            Validates the customer.
+            </summary>
+            <returns>Instance of the <see cref="T:Kentico.Ecommerce.CustomerValidator"/> with validation summary.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.Customer.Save(System.Boolean)">
+            <summary>
+            Saves the customer into the database.
+            </summary>
+            <param name="validate">Specifies whether the validation should be performed.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.Order">
+            <summary>
+            Represents a customer's order.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.Order.OriginalOrder">
+            <summary>
+            Original Kentico order info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.OrderInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.OrderID">
+            <summary>
+            Gets the order's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.OrderInvoiceNumber">
+            <summary>
+            Gets the order's invoice number.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.OrderDate">
+            <summary>
+            Gets the order's creation date.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.Currency">
+            <summary>
+            Gets the currency used in the order.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.BillingAddress">
+            <summary>
+            Order's billing address. See <see cref="T:Kentico.Ecommerce.OrderAddress"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.ShippingAddress">
+            <summary>
+            Order's shipping address. See <see cref="T:Kentico.Ecommerce.OrderAddress"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.StatusID">
+            <summary>
+            Gets the order status's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.StatusName">
+            <summary>
+            Order status's display name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.OrderItems">
+            <summary>
+            Items in the order. See <see cref="T:Kentico.Ecommerce.OrderItem"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.IsPaid">
+            <summary>
+            Indicates if the order is paid.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.IsAuthorized">
+            <summary>
+            Indicates whether the order payment is authorized.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.PaymentResult">
+            <summary>
+            Gets the order's payment result. See <see cref="T:CMS.Ecommerce.PaymentResultInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Order.TotalPrice">
+            <summary>
+            Gets the order's total price.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Order.#ctor(CMS.Ecommerce.OrderInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.Order"/> class.
+            </summary>
+            <param name="originalOrder"><see cref="T:CMS.Ecommerce.PaymentResultInfo"/> object representing an original Kentico order info object from which the model is created.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.Order.SetAsPaid">
+            <summary>
+            Marks the order as paid.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Order.SetPaymentResult(CMS.Ecommerce.PaymentResultInfo)">
+            <summary>
+            Sets the payment result to the <see cref="T:Kentico.Ecommerce.Order"/> object.
+            </summary>
+            <remarks>
+            In case the <see cref="P:CMS.Ecommerce.PaymentResultInfo.PaymentIsCompleted"/> property of <paramref name="paymentResult"/> is true, the order is marked as paid and the order status is set according to <see cref="P:CMS.Ecommerce.PaymentOptionInfo.PaymentOptionSucceededOrderStatusID"/>.
+            The <see cref="P:CMS.Ecommerce.PaymentResultInfo.PaymentIsFailed"/> property value of <paramref name="paymentResult"/> indicates if the order is marked as unpaid and the order status is set according to <see cref="P:CMS.Ecommerce.PaymentOptionInfo.PaymentOptionFailedOrderStatusID"/>.
+            </remarks>
+            <param name="paymentResult"><see cref="T:CMS.Ecommerce.PaymentResultInfo"/> object representing an original Kentico payment result object from which the model is created.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.Order.IsCreatedByUser(System.Int32)">
+            <summary>
+            Checks if order was created by given user.
+            </summary>
+            <param name="userID">ID of the user.</param>
+            <returns><c>true</c> if the order was created by the user.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.Order.Save">
+            <summary>
+            Saves the order into the database.
+            </summary>
+        </member>
+        <member name="T:Kentico.Ecommerce.OrderAddress">
+            <summary>
+            Represents an address used in an order.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.OrderAddress.OriginalAddress">
+            <summary>
+            Original Kentico order address info object from which the model gathers information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.PersonalName">
+            <summary>
+            Address's personal name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.Line1">
+            <summary>
+            Address's line 1. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.Line2">
+            <summary>
+            Address's line 2. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.City">
+            <summary>
+            Address's city.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.PostalCode">
+            <summary>
+            Address's postal code.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.ID">
+            <summary>
+            Address's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.CountryID">
+            <summary>
+            Country's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.StateID">
+            <summary>
+            State's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.Country">
+            <summary>
+            Address's country. See <see cref="T:CMS.Globalization.CountryInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderAddress.State">
+            <summary>
+            Address's state. See <see cref="T:CMS.Globalization.StateInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.OrderAddress.#ctor(CMS.Ecommerce.OrderAddressInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.OrderAddress"/> class.
+            </summary>
+            <param name="originalAddress"><see cref="T:CMS.Ecommerce.OrderAddressInfo"/> object representing an original Kentico order address info object from which the model is created.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.OrderItem">
+            <summary>
+            Represents an order item.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.OrderItem.OriginalOrderItem">
+            <summary>
+            Original Kentico order item info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.OrderItemInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.ImagePath">
+            <summary>
+            Gets the path to the product image.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.ID">
+            <summary>
+            Gets the order item's identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.Subtotal">
+            <summary>
+            Gets the total price of the order item in the main currency.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.UnitPrice">
+            <summary>
+            Gets the unit price of the order item.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.Units">
+            <summary>
+            Gets the number of the order items.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.Name">
+            <summary>
+            Gets the order item's name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.OrderItem.SKUID">
+            <summary>
+            Gets the SKU object's identifier.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.OrderItem.#ctor(CMS.Ecommerce.OrderItemInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.OrderItem"/> class.
+            </summary>
+            <param name="originalOrderItem"><see cref="T:CMS.Ecommerce.OrderItemInfo"/> object representing an original Kentico order item info object from which the model is created.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.PriceBase">
+            <summary>
+            Represents a calculated price with or without taxes. If the price is calculated without taxes, the <see cref="P:Kentico.Ecommerce.PriceBase.Tax"/> property contains 0.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.PriceBase.Currency">
+            <summary>
+            Currency in which the price and tax are expressed.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.PriceBase.Price">
+            <summary>
+            Calculated price including taxes (if calculated with them).
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.PriceBase.Tax">
+            <summary>
+            Price's tax amount. If the price is calculated without taxes, it contains 0.
+            </summary>
+        </member>
+        <member name="T:Kentico.Ecommerce.ProductPrice">
+            <summary>
+            Represents information about product prices and their components.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductPrice.Discount">
+            <summary>
+            Amount of catalog discounts.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductPrice.ListPrice">
+            <summary>
+            Base list price of the product.
+            </summary>
+        </member>
+        <member name="T:Kentico.Ecommerce.ProductOptionCategory">
+            <summary>
+            Represents an option category with selectable options.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductOptionCategory.ID">
+            <summary>
+            Gets the ID of the option category.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductOptionCategory.DisplayName">
+            <summary>
+            Gets the category's display name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductOptionCategory.DefaultText">
+            <summary>
+            Gets the category's default selection text.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductOptionCategory.SelectionType">
+            <summary>
+            Gets the category's selection type. See <see cref="T:CMS.Ecommerce.OptionCategorySelectionTypeEnum"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ProductOptionCategory.CategoryOptions">
+            <summary>
+            Category's product options. See <see cref="T:CMS.Ecommerce.SKUInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ProductOptionCategory.#ctor(CMS.Ecommerce.OptionCategoryInfo,System.Collections.Generic.IEnumerable{CMS.Ecommerce.SKUInfo})">
+            <summary>
+            Creates a new instance of the <see cref="T:Kentico.Ecommerce.ProductOptionCategory"/> class.
+            </summary>
+            <param name="category"><see cref="T:CMS.Ecommerce.OptionCategoryInfo"/> object representing an original Kentico option category info object from which the model is created.</param>
+            <param name="options">Collection of selectable product options.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.ShippingPrice">
+            <summary>
+            Represents information about shipping prices and its components.
+            </summary>
+        </member>
+        <member name="T:Kentico.Ecommerce.ShoppingCart">
+            <summary>
+            Represents a customer's shopping cart.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.ShoppingCart.OriginalCart">
+            <summary>
+            Original Kentico shopping cart info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.ShoppingCartInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.Items">
+            <summary>
+            List of shopping cart items. See <see cref="T:Kentico.Ecommerce.ShoppingCartItem"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.IsEmpty">
+            <summary>
+            Indicates whether shopping cart contains no items.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.TotalPrice">
+            <summary>
+            Gets the total price of the shopping cart. All discounts except for the order discount, taxes and shipping costs are included.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.GrandTotal">
+            <summary>
+            Gets the grand total of the shopping cart. All discount, taxes and shipping costs are included.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.TotalTax">
+            <summary>
+            Gets the total tax which is applied to all shopping cart items altogether.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.HasShippingAddress">
+            <summary>
+            Indicates whether the shopping cart has a shipping address filled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.Shipping">
+            <summary>
+            Total shipping costs.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.IsShippingNeeded">
+            <summary>
+            Indicates if shipping is needed for the shopping cart.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.AppliedCouponCodes">
+            <summary>
+            Customer's coupon codes applied to shopping cart.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.User">
+            <summary>
+            Owner of the shopping cart. Returns <c>null</c> if the customer is anonymous. See <see cref="T:CMS.Membership.UserInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.Currency">
+            <summary>
+            The currency of the shopping cart.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.PaymentMethod">
+            <summary>
+            Selected payment method. If none is selected and there is only one payment method available, it is selected automatically. See <see cref="T:CMS.Ecommerce.PaymentOptionInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.ShippingOption">
+            <summary>
+            Selected shipping option. If none is selected and only one is available, it is selected automatically. See <see cref="T:CMS.Ecommerce.ShippingOptionInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.Customer">
+            <summary>
+            Customer's information. See <see cref="P:Kentico.Ecommerce.ShoppingCart.Customer"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.BillingAddress">
+            <summary>
+            Shopping cart's entered customer billing address. See <see cref="T:Kentico.Ecommerce.CustomerAddress"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCart.ShippingAddress">
+            <summary>
+            Shopping cart's entered customer shipping address. See <see cref="T:Kentico.Ecommerce.CustomerAddress"/> for detailed information.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.#ctor(CMS.Ecommerce.ShoppingCartInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.ShoppingCart"/> class.
+            </summary>
+            <param name="originalCart"><see cref="T:CMS.Ecommerce.ShoppingCartInfo"/> object representing an original Kentico shopping cart info object from which the model is created.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.ValidateContent">
+            <summary>
+            Checks the shopping cart content.
+            </summary>
+            <remarks>
+            The following conditions must be met to pass the check:
+            1) All shopping cart items are enabled.
+            2) Max. number of units in one order is not exceeded.
+            3) There is enough units in the inventory.
+            </remarks>
+            <returns>Container with check results. See <see cref="T:CMS.Ecommerce.ShoppingCartCheckResult"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.IsPaymentMethodApplicable(CMS.Ecommerce.PaymentOptionInfo)">
+            <summary>
+            Checks if the payment method is applicable for this shopping cart.
+            </summary>
+            <param name="paymentMethod">Payment method which is checked.</param>
+            <returns>By default, returns always <c>true</c>. You can override the <see cref="M:CMS.Ecommerce.PaymentOptionInfoProvider.IsPaymentOptionApplicable(CMS.Ecommerce.ShoppingCartInfo,CMS.Ecommerce.PaymentOptionInfo)"/> method to change this behavior.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.AddItem(System.Int32,System.Int32)">
+            <summary>
+            Adds an item to the shopping cart and saves the newly created cart into the database. Also saves the shopping cart if it wasn't saved yet.
+            </summary>
+            <param name="skuId">ID of the added product's SKU object.</param>
+            <param name="quantity">Number of added product units.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.UpdateQuantity(System.Int32,System.Int32)">
+            <summary>
+            Updates product units in the shopping cart and saves the item change into the database.
+            </summary>
+            <param name="itemId">ID of the shopping cart item.</param>
+            <param name="quantity">New number of the product units.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.RemoveItem(System.Int32)">
+            <summary>
+            Removes an item from the shopping cart. Also deletes the cart item from the database.
+            </summary>
+            <remarks>
+            If the cart item has already been removed and does not exist in the cart, no activity is logged.
+            </remarks>
+            <param name="itemId">ID of the shopping cart item.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.RemoveAllItems">
+            <summary>
+            Removes all items from the shopping cart.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.Validate">
+            <summary>
+            Validates the shopping cart object.
+            </summary>
+            <returns>Instance of the <see cref="T:Kentico.Ecommerce.ShoppingCartValidator"/> with validation summary.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.Evaluate">
+            <summary>
+            Evaluates the price information.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.Save(System.Boolean)">
+            <summary>
+            Saves the shopping cart into the database.
+            </summary>
+            <param name="validate">Specifies whether the validation should be performed.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.AddCouponCode(System.String)">
+            <summary>
+            Add the specified coupon code to the shopping cart.
+            </summary>
+            <param name="couponCode">Coupon code to add</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.RemoveCouponCode(System.String)">
+            <summary>
+            Remove specified coupon code from the shopping cart.
+            </summary>
+            <param name="couponCode">Coupon code to remove</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.SaveAddresses">
+            <summary>
+            Saves the billing and shipping address into the database (if addresses are available).
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCart.SaveCustomer">
+            <summary>
+            Saves the shopping cart's customer into the database.
+            </summary>
+        </member>
+        <member name="T:Kentico.Ecommerce.ShoppingCartItem">
+            <summary>
+            Represents an item in a shopping cart.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.ShoppingCartItem.OriginalCartItem">
+            <summary>
+            Original Kentico shopping cart item info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.ShoppingCartItemInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.ImagePath">
+            <summary>
+            Gets the path to the product image.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.ID">
+            <summary>
+            Gets the shopping cart item identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.Subtotal">
+            <summary>
+            Gets the total price of the shopping cart item in the shopping cart's currency.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.UnitPrice">
+            <summary>
+            Gets the unit price of the shopping cart item.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.Units">
+            <summary>
+            Gets the number of the item units in the shopping cart.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.Name">
+            <summary>
+            Gets the shopping cart item's name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartItem.SKUID">
+            <summary>
+            Gets the item's SKU object identifier.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCartItem.#ctor(CMS.Ecommerce.ShoppingCartItemInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.ShoppingCartItem"/> class.
+            </summary>
+            <param name="originalCartItem"><see cref="T:CMS.Ecommerce.ShoppingCartItemInfo"/> object representing an original Kentico shopping cart item info object from which the model is created.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.CustomerAddressValidator">
+            <summary>
+            Class for customer address validation.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddressValidator.CheckFailed">
+            <summary>
+            Indicates if some validation failed.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddressValidator.CountryNotSet">
+            <summary>
+            True when country is not set.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerAddressValidator.StateNotFromCountry">
+            <summary>
+            True when country does not contain selected state.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddressValidator.#ctor(Kentico.Ecommerce.CustomerAddress)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.CustomerAddressValidator"/> class.
+            </summary>
+            <param name="address"><see cref="T:Kentico.Ecommerce.CustomerAddress"/> object representing a customer address that is validated.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerAddressValidator.Validate">
+            <summary>
+            Validates the address.
+            </summary>
+            <remarks>
+            The following conditions must be met to pass the validation:
+            1) Country is set.
+            2) Country contains selected state.
+            </remarks>
+        </member>
+        <member name="T:Kentico.Ecommerce.CustomerValidator">
+            <summary>
+            Class for customer validation.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerValidator.CheckFailed">
+            <summary>
+            Indicates if some validation failed.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.CustomerValidator.InvalidEmailFormat">
+            <summary>
+            True when email is in invalid format.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerValidator.#ctor(Kentico.Ecommerce.Customer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.CustomerValidator"/> class.
+            </summary>
+            <param name="customer"><see cref="T:Kentico.Ecommerce.Customer"/> object representing a customer that is validated</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.CustomerValidator.Validate">
+            <summary>
+            Validates the customer.
+            </summary>
+            <remarks>
+            The following conditions must be met to pass the validation:
+            1) Email is in valid format.
+            </remarks>
+        </member>
+        <member name="T:Kentico.Ecommerce.ShoppingCartValidator">
+            <summary>
+            Class for shopping cart validation.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.CheckFailed">
+            <summary>
+            Indicates if some validation failed.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.UserDisabled">
+            <summary>
+            True when user is not enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.PaymentMethodDisabled">
+            <summary>
+            True when payment method is not enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.ShoppingOptionDisabled">
+            <summary>
+            True when shipping option is not enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.PaymentMethodFromDifferentSite">
+            <summary>
+            True when payment method is not available on the current site.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.ShippingOptionFromDifferentSite">
+            <summary>
+            True when shipping option is not available on the current site.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.BillingAddressFromDifferentCustomer">
+            <summary>
+            True when billing address does not belong to the cart customer.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.ShippingAddressFromDifferentCustomer">
+            <summary>
+            True when shipping address does not belong to the cart customer.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.BillingAddress">
+            <summary>
+            Billing address validation results.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.ShippingAddress">
+            <summary>
+            Shipping address validation results.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingCartValidator.Customer">
+            <summary>
+            Customer validation results.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCartValidator.#ctor(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.ShoppingCartValidator"/> class.
+            </summary>
+            <param name="cart"><see cref="T:Kentico.Ecommerce.ShoppingCart"/> object representing a shopping cart that is validated.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingCartValidator.Validate">
+            <summary>
+            Validates the shopping cart.
+            </summary>
+            <remarks>
+            The following conditions must be met to pass the validation:
+            1) User is enabled and is available on the current site.
+            2) Payment method is enabled and is available on the current site.
+            3) Shopping option is enabled and is available on the current site.
+            4) Billing and shipping addresses belong to the cart customer.
+            5) Billing and shipping addresses are both valid.
+            </remarks>
+        </member>
+        <member name="T:Kentico.Ecommerce.Variant">
+            <summary>
+            Represents a product variant.
+            </summary>
+        </member>
+        <member name="F:Kentico.Ecommerce.Variant.VariantSKU">
+            <summary>
+            Original Kentico variant's SKU info object from which the model gathers information. See <see cref="T:CMS.Ecommerce.SKUInfo"/> for detailed information.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.VariantSKUID">
+            <summary>
+            Gets the product variant's SKU object identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.Name">
+            <summary>
+            Gets the product variant's name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.SKUNumber">
+            <summary>
+            Gets the product variant's SKU number.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.AvailableItems">
+            <summary>
+            Gets the product variant's number of available items.
+            </summary>
+            <remarks>
+            Number of available items from the variant's parent is returned in case of tracking by <see cref="F:CMS.Ecommerce.TrackInventoryTypeEnum.ByProduct"/>.
+            </remarks>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.VariantPrice">
+            <summary>
+            Gets the product variant's price.
+            </summary>
+            <remarks>
+            Catalog discounts or taxes are not included. Use <see cref="M:Kentico.Ecommerce.PricingService.CalculatePrice(Kentico.Ecommerce.Variant,Kentico.Ecommerce.ShoppingCart)"/> to return the final price. 
+            </remarks>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.InventoryTracked">
+            <summary>
+            Indicates if the product inventory is tracked. 
+            <c>true</c> - inventory is tracked by the parent product or by variants.
+            <c>false</c> - inventory tracking is disabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.Enabled">
+            <summary>
+            Indicates if the product variant is allowed for sale.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.ImagePath">
+            <summary>
+            Gets the path to the product variant image.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.Variant.ProductAttributes">
+            <summary>
+            Gets the product options of this variant.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.Variant.#ctor(CMS.Ecommerce.SKUInfo,CMS.Ecommerce.ProductAttributeSet)">
+            <summary>
+            Creates new instance of <see cref="T:Kentico.Ecommerce.Variant"/> class representing a product variant.
+            </summary>
+            <param name="sku"><see cref="T:CMS.Ecommerce.SKUInfo"/> object representing an original Kentico variant's SKU info object from which the model is created.</param>
+            <param name="attributes"><see cref="T:CMS.Ecommerce.ProductAttributeSet"/> object representing the product options of this variant.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.ICustomerAddressRepository">
+            <summary>
+            Interface for classes providing CRUD operations for customers' addresses.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ICustomerAddressRepository.GetById(System.Int32)">
+            <summary>
+            Returns a customer's address with the specified identifier.
+            </summary>
+            <param name="addressId">Identifier of the customer's address.</param>
+            <returns>Customer's address with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ICustomerAddressRepository.GetByCustomerId(System.Int32)">
+            <summary>
+            Returns an enumerable collection of a customer's addresses.
+            </summary>
+            <param name="customerId">Customer's identifier..</param>
+            <returns>Collection of the customer's addresses. See <see cref="T:Kentico.Ecommerce.CustomerAddress"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ICustomerAddressRepository.Upsert(Kentico.Ecommerce.CustomerAddress)">
+            <summary>
+            Saves a customer's address in the database.
+            </summary>
+            <param name="address"><see cref="T:Kentico.Ecommerce.CustomerAddress"/> object representing a customer's address that is updated.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.KenticoCustomerAddressRepository">
+            <summary>
+            Provides CRUD operations for customer addresses.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoCustomerAddressRepository.GetById(System.Int32)">
+            <summary>
+            Returns a customer's address with the specified identifier.
+            </summary>
+            <param name="addressId">Identifier of the customer's address.</param>
+            <returns>Customer's address with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoCustomerAddressRepository.GetByCustomerId(System.Int32)">
+            <summary>
+            Returns an enumerable collection of a customer's addresses.
+            </summary>
+            <param name="customerId">Customer's identifier.</param>
+            <returns>Collection of customer's addresses. See <see cref="T:Kentico.Ecommerce.CustomerAddress"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoCustomerAddressRepository.Upsert(Kentico.Ecommerce.CustomerAddress)">
+            <summary>
+            Saves a customer's address into the database.
+            </summary>
+            <param name="address"><see cref="T:Kentico.Ecommerce.CustomerAddress"/> object representing a customer's address that is inserted.</param>
+        </member>
+        <member name="T:Kentico.Ecommerce.KenticoOrderRepository">
+            <summary>
+            Provides CRUD operations for orders.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoOrderRepository.GetById(System.Int32)">
+            <summary>
+            Returns an order with the specified identifier.
+            </summary>
+            <param name="orderId">Order's identifier.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Order"/> object representing an order with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoOrderRepository.GetByCustomerId(System.Int32,System.Int32)">
+            <summary>
+            Returns an enumerable collection of TopN orders of the given customer ordered by OrderDate descending.
+            </summary>
+            <param name="customerId">Customer's identifier.</param>
+            <param name="count">Number of retrieved orders. Using 0 returns all records.</param>
+            <returns>Collection of the customer's orders. See <see cref="T:Kentico.Ecommerce.Order"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.KenticoPaymentMethodRepository">
+            <summary>
+            Provides CRUD operations for payment methods.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoPaymentMethodRepository.GetById(System.Int32)">
+            <summary>
+            Returns a payment method with the specified identifier.
+            </summary>
+            <param name="paymentMethodId">Payment method's identifier.</param>
+            <returns><see cref="T:CMS.Ecommerce.PaymentOptionInfo"/> object representing a payment method with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoPaymentMethodRepository.GetAll">
+            <summary>
+            Returns an enumerable collection of all enabled payment methods.
+            </summary>
+            <returns>Collection of enabled payment methods. See <see cref="T:CMS.Ecommerce.PaymentOptionInfo"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.KenticoShippingOptionRepository">
+            <summary>
+            Provides CRUD operations for shipping options.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoShippingOptionRepository.GetById(System.Int32)">
+            <summary>
+            Returns a shipping option with the specified identifier.
+            </summary>
+            <param name="shippingOptionId">Shipping option's identifier.</param>
+            <returns><see cref="T:CMS.Ecommerce.ShippingOptionInfo"/> object representing a shipping option with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoShippingOptionRepository.GetAllEnabled">
+            <summary>
+            Returns an enumerable collection of all enabled shipping options.
+            </summary>
+            <returns>Collection of enabled shipping options. See <see cref="T:CMS.Ecommerce.ShippingOptionInfo"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.KenticoVariantRepository">
+            <summary>
+            Provides CRUD operations for product variants.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoVariantRepository.GetByProductId(System.Int32)">
+            <summary>
+            Returns an enumerable collection of all variants of the given product.
+            </summary>
+            <param name="productId">SKU object identifier of the variant's parent product.</param>
+            <returns>Collection of product variants. See <see cref="T:Kentico.Ecommerce.Variant"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoVariantRepository.GetById(System.Int32)">
+            <summary>
+            Returns a variant with the specified identifier.
+            </summary>
+            <param name="variantId">Product variant's SKU object identifier.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Variant"/> object representing a product variant with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoVariantRepository.GetVariantOptionCategories(System.Int32)">
+            <summary>
+            Returns a collection of option categories used in a product's variants.
+            </summary>
+            <param name="productId">SKU identifier of the variant's parent product.</param>
+            <returns>Collection of option categories used in a product's variants. See <see cref="T:Kentico.Ecommerce.ProductOptionCategory"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.KenticoVariantRepository.GetByProductIdAndOptions(System.Int32,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Returns a variant for the given parent product which consists of the specified options.
+            If multiple variants use the given subset of options, one of them is returned (based on setting of the database engine).
+            </summary>
+            <param name="productId">SKU identifier of the variant's parent product.</param>
+            <param name="optionIds">Collection of the variant's product options.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Variant"/> object representing a product variant assembled from the specified information. Returns <c>null</c> if such variant does not exist.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IOrderRepository">
+            <summary>
+            Interface for classes providing CRUD operations for orders.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IOrderRepository.GetById(System.Int32)">
+            <summary>
+            Returns an order with the specified identifier.
+            </summary>
+            <param name="orderId">Order's identifier.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Order"/> object representing an order with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IOrderRepository.GetByCustomerId(System.Int32,System.Int32)">
+            <summary>
+            Returns an enumerable collection of the given customer's orders.
+            </summary>
+            <param name="customerId">Customer's identifier.</param>
+            <param name="count">Number of retrieved orders. Using 0 returns all records.</param>
+            <returns>Collection of the customer's orders. See <see cref="T:Kentico.Ecommerce.Order"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IPaymentMethodRepository">
+            <summary>
+            Interface for classes providing CRUD operations for payment methods.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPaymentMethodRepository.GetById(System.Int32)">
+            <summary>
+            Returns a payment method with the specified identifier.
+            </summary>
+            <param name="paymentMethodId">Payment method's identifier.</param>
+            <returns><see cref="T:CMS.Ecommerce.PaymentOptionInfo"/> object representing a payment method with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPaymentMethodRepository.GetAll">
+            <summary>
+            Returns an enumerable collection of all enabled payment methods.
+            </summary>
+            <returns>Collection of enabled payment methods. See <see cref="T:CMS.Ecommerce.PaymentOptionInfo"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IShippingOptionRepository">
+            <summary>
+            Interface for classes providing CRUD operations for shipping options.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShippingOptionRepository.GetById(System.Int32)">
+            <summary>
+            Returns a shipping option with the specified identifier.
+            </summary>
+            <param name="shippingOptionId">Shipping option's identifier.</param>
+            <returns><see cref="T:CMS.Ecommerce.ShippingOptionInfo"/> object representing a shipping option with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShippingOptionRepository.GetAllEnabled">
+            <summary>
+            Returns an enumerable collection of all enabled shipping options.
+            </summary>
+            <returns>Collection of enabled shipping options. See <see cref="T:CMS.Ecommerce.ShippingOptionInfo"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IVariantRepository">
+            <summary>
+            Interface for classes providing CRUD operations for product variants.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IVariantRepository.GetById(System.Int32)">
+            <summary>
+            Returns a variant with the specified identifier.
+            </summary>
+            <param name="variantId">Product variant's SKU object identifier.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Variant"/> object representing a product variant with the specified identifier. Returns <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IVariantRepository.GetByProductId(System.Int32)">
+            <summary>
+            Returns an enumerable collection of all variants of the given product.
+            </summary>
+            <param name="productId">SKU object identifier of the variant's parent product.</param>
+            <returns>Collection of product variants. See <see cref="T:Kentico.Ecommerce.Variant"/> for detailed information.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IVariantRepository.GetByProductIdAndOptions(System.Int32,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Returns a variant for the given parent product which consists of the specified options.
+            If multiple variants use the given subset of options, one of them is returned (based on setting of the database engine).
+            </summary>
+            <param name="productId">SKU identifier of the variant's parent product.</param>
+            <param name="optionIds">Collection of the variant's product options.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Variant"/> object representing a product variant assembled from the specified information. Returns <c>null</c> if such variant does not exist.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IVariantRepository.GetVariantOptionCategories(System.Int32)">
+            <summary>
+            Returns a collection of option categories used in a product's variants.
+            </summary>
+            <param name="productId">SKU identifier of the variant's parent product.</param>
+            <returns>Collection of option categories used in a product's variants. See <see cref="T:Kentico.Ecommerce.ProductOptionCategory"/> for detailed information.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IPricingService">
+            <summary>
+            Interface for a service providing methods for price calculation.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPricingService.CalculatePrice(CMS.Ecommerce.SKUInfo,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates and returns prices of the given product.
+            </summary>
+            <param name="product">SKU info object (<see cref="T:CMS.Ecommerce.SKUInfo"/>) of the product for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ProductPrice"/> object containing the product's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPricingService.CalculatePrice(Kentico.Ecommerce.Variant,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates prices of the given product variant.
+            </summary>
+            <param name="variant">Variant model (<see cref="T:Kentico.Ecommerce.Variant"/>) of the variant's parent product for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ProductPrice"/> object containing the variant's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPricingService.CalculateShippingOptionPrice(CMS.Ecommerce.ShippingOptionInfo,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates prices of the given shipping option.
+            </summary>
+            <param name="shippingInfo">Shipping option info object (<see cref="T:CMS.Ecommerce.ShippingOptionInfo"/>) for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ShippingPrice"/> object containing the shipping's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IPricingService.CalculateRemainingAmountForFreeShipping(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates the remaining amount for free shipping.
+            </summary>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the calculation information.</param>
+            <returns>Returns the remaining amount for free shipping. Returns 0 if the cart is null, if there is no valid discount, or if free shipping was already applied.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.IShoppingService">
+            <summary>
+            Interface for a service providing methods for managing shopping carts.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShoppingService.GetCurrentShoppingCart">
+            <summary>
+            Returns the current shopping cart.
+            </summary>
+            <returns><see cref="T:Kentico.Ecommerce.ShoppingCart"/> object representing the shopping cart on the current site.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShoppingService.CreateOrder(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Creates a new order from the shopping cart. Saves the shopping cart before the order creation.
+            </summary>
+            <param name="cart">Validated shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) from which an order is created.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Order"/> object representing the created order.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShoppingService.DeleteShoppingCart(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Deletes a shopping cart from the database.
+            </summary>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) that is deleted.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.IShoppingService.GetCurrentCustomer">
+            <summary>
+            Gets the current customer.
+            </summary>
+            <returns><see cref="T:Kentico.Ecommerce.Customer"/> object representing the current customer. Returns <c>null</c> if there is not any current customer.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.PricingService">
+            <summary>
+            Provides methods for price calculation.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.PricingService.CalculatePrice(CMS.Ecommerce.SKUInfo,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates and returns prices of the given product.
+            </summary>
+            <param name="product">SKU info object (<see cref="T:CMS.Ecommerce.SKUInfo"/>) of the product for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ProductPrice"/> object containing the product's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.PricingService.CalculatePrice(Kentico.Ecommerce.Variant,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates prices of the given product variant.
+            </summary>
+            <param name="variant">Variant model (<see cref="T:Kentico.Ecommerce.Variant"/>) of the variant's parent product for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ProductPrice"/> object containing the variant's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.PricingService.CalculateShippingOptionPrice(CMS.Ecommerce.ShippingOptionInfo,Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates prices of the given shipping option.
+            </summary>
+            <param name="shippingInfo">Shipping option info object (<see cref="T:CMS.Ecommerce.ShippingOptionInfo"/>) for which the prices are calculated.</param>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the price calculation information.</param>
+            <returns><see cref="T:Kentico.Ecommerce.ShippingPrice"/> object containing the shipping's prices.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.PricingService.CalculateRemainingAmountForFreeShipping(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Calculates the remaining amount for free shipping.
+            </summary>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) used to gather the calculation information.</param>
+            <returns>Returns the remaining amount for free shipping. Returns 0 if the cart is null, if there is no valid discount, or if free shipping was already applied.</returns>
+        </member>
+        <member name="T:Kentico.Ecommerce.ShoppingService">
+            <summary>
+            Provides methods for managing shopping carts.
+            </summary>
+        </member>
+        <member name="P:Kentico.Ecommerce.ShoppingService.SiteName">
+            <summary>
+            Gets site name.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Ecommerce.ShoppingService"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingService.GetCurrentShoppingCart">
+            <summary>
+            Returns the current shopping cart.
+            </summary>
+            <returns><see cref="T:Kentico.Ecommerce.ShoppingCart"/> object representing the shopping cart on the current site.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingService.CreateOrder(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Creates a new order from the shopping cart. Saves the shopping cart before the order creation.
+            </summary>
+            <param name="cart">Validated shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) from which an order is created.</param>
+            <returns><see cref="T:Kentico.Ecommerce.Order"/> object representing the created order.</returns>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingService.DeleteShoppingCart(Kentico.Ecommerce.ShoppingCart)">
+            <summary>
+            Deletes a shopping cart from the database.
+            </summary>
+            <param name="cart">Shopping cart (<see cref="T:Kentico.Ecommerce.ShoppingCart"/>) that is deleted.</param>
+        </member>
+        <member name="M:Kentico.Ecommerce.ShoppingService.GetCurrentCustomer">
+            <summary>
+            Gets the current customer.
+            </summary>
+            <returns><see cref="T:Kentico.Ecommerce.Customer"/> object representing the current customer. Returns <c>null</c> if there is not any current customer.</returns>
+        </member>
+    </members>
+</doc>
