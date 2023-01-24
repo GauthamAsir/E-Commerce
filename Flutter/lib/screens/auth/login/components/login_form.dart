@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:shop_app/components/custom_suffix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
 import 'package:shop_app/helper/keyboard.dart';
 import 'package:shop_app/providers/auth_provider.dart';
-import 'package:shop_app/screens/auth/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/forgot_password/forgot_password_screen.dart';
+import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/utils/constants.dart';
 import 'package:shop_app/utils/size_config.dart';
 
-class SignForm extends StatefulWidget {
+class LoginForm extends StatefulWidget {
   @override
-  _SignFormState createState() => _SignFormState();
+  _LoginFormState createState() => _LoginFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -35,6 +37,37 @@ class _SignFormState extends State<SignForm> {
       setState(() {
         errors.remove(error);
       });
+  }
+
+  void login() async {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      // if all are valid then go to success screen
+      KeyboardUtil.hideKeyboard(context);
+
+      var res = await authProvider.login(email!, password!);
+
+      if (res['status']) {
+        saveDataToBox(kCurrentUserEmail, email);
+        saveDataToBox(kCurrentUserId, int.parse(res['custId']));
+        saveDataToBox(kCurrentUserRoleIdd, int.parse(res['roleId']));
+
+        saveDataToBox(kToken, res[kToken]);
+        saveDataToBox(
+            kTokenExpiresIn,
+            DateFormat("E, d MMM yyyy HH:m:s")
+                .parse(res[".expires"])
+                .toUtc()
+                .microsecondsSinceEpoch);
+
+        authProvider.currentUserId = int.parse(res['custId']);
+        authProvider.getCurrentUser();
+
+        Get.offNamedUntil(HomeScreen.routeName, (route) => false);
+      } else {
+        getSnack('Failed', 'Incorrect Email or Password');
+      }
+    }
   }
 
   @override
@@ -78,28 +111,7 @@ class _SignFormState extends State<SignForm> {
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
             text: "Continue",
-            press: () async {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-
-                var res = await authProvider.login(email!, password!);
-                print(res['customerId']);
-                if (res['status']) {
-                  saveDataToBox(kCurrentUserId, email);
-                  saveDataToBox(kCurrentUserId, res['customerId'] as int);
-                  print(getIntFromBox(kCurrentUserId).toString());
-                  authProvider.currentUserId = res['customerId'];
-                  authProvider.getCurrentUser();
-                  Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-                } else {
-                  getSnack('Failed', 'Incorrect Email or Password');
-                }
-
-                // Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              }
-            },
+            press: login,
           ),
         ],
       ),

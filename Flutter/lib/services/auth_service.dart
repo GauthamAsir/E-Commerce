@@ -22,7 +22,9 @@ class AuthService extends GetxService {
       try {
         print(getUrl(['auth', 'user']));
         var response = await http
-            .post(getUrl(['auth', 'user']), body: {'custId': id.toString()});
+            .post(getUrl(['auth', 'user']),
+            headers: getHeaders(),
+            body: {'custId': id.toString()});
         if (response.statusCode == 200) {
           var d = jsonDecode(jsonDecode(response.body));
           if (d['exists']) {
@@ -40,12 +42,11 @@ class AuthService extends GetxService {
 
   Future<Map> login(String email, String password) async {
     try {
-      print(getUrl(['auth', 'login']));
-      var response = await http.post(getUrl(['auth', 'login']),
-          body: {'email': email, 'password': password});
+      print(getUrl(['almtoken']));
+      var response = await http.post(getUrl(['almtoken']),
+          body: {'UserName': email, 'Password': password, 'grant_type': 'password'});
       if (response.statusCode == 200) {
-        var d = jsonDecode(jsonDecode(response.body));
-        return Future.value(d);
+        return Future.value(jsonDecode(response.body));
       }
     } catch (e) {
       if (kDebugMode) {

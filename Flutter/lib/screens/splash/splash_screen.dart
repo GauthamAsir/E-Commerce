@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:shop_app/screens/home/home_screen.dart';
 import 'package:shop_app/screens/splash/components/splash_body.dart';
 import 'package:shop_app/screens/splash/splash_controller.dart';
@@ -18,6 +19,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    // controller.loggedIn!.listen((p0) {
+    //   if(p0) {
+    //     Future.delayed(const Duration(seconds: 1), () {
+    //       Get.toNamed(HomeScreen.routeName);
+    //     });
+    //   }
+    // });
     if (controller.loggedIn != null) {
       if (controller.loggedIn!.value) {
         Future.delayed(const Duration(seconds: 1), () {

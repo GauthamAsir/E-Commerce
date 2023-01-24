@@ -21,8 +21,8 @@ class ProductService extends GetxService {
   }
 
   Future<void> fetchAllProducts() async {
-    var response =
-        await http.get(getUrl(['Product'])).timeout(Duration(seconds: 5));
+    String token = getStringFromBox(kToken) ?? "";
+    var response = await http.get(getUrl(['Product']), headers: getHeaders()).timeout(Duration(seconds: 5));
     if (response.statusCode == 200) {
       List d = jsonDecode(jsonDecode(response.body));
       List<Product> products = d.map((e) => Product.fromJson(e)).toList();

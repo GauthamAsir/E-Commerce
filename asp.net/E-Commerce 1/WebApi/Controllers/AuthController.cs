@@ -11,7 +11,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
 using System.Text.Json;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Tracing;
@@ -24,6 +26,40 @@ namespace WebApi.Controllers
         DBHelper dBHelper = new DBHelper();
 
         Utils utils = new Utils();
+
+
+        public async Task<string> GetToken()
+        {
+            var data = utils.getRequestData();
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                KeyValuePair<string, string> UserName = new KeyValuePair<string, string>("UserName", data["email"]);
+                KeyValuePair<string, string> Password = new KeyValuePair<string, string>("Password", data["password"]);
+                KeyValuePair<string, string> grant_type = new KeyValuePair<string, string>("grant_type", data["grant_type"]);
+
+                List<KeyValuePair<string, string>> mykey = new List<KeyValuePair<string, string>>
+                {
+                    UserName,
+                    Password,
+                    grant_type
+                };
+
+                var formContent = new FormUrlEncodedContent(mykey);
+
+                HttpResponseMessage Res = await client.PostAsync("almtoken", formContent);
+                if (Res.IsSuccessStatusCode)
+                {
+                    var tokenResponse = Res.Content.ReadAsStringAsync().Result;
+                    return tokenResponse;
+                }
+
+                return null;
+            }
+        }
 
         [Route("api/auth/login")]
         [HttpPost]

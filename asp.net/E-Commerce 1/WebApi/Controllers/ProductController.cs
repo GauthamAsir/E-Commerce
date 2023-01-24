@@ -15,6 +15,8 @@ namespace WebApi.Controllers
 
         DBHelper dBHelper = new DBHelper();
 
+        //[Authorize(Roles = "1")]
+        [Authorize]
         [Route("api/product")]
         [HttpGet]
         public HttpResponseMessage Get()

@@ -128,8 +128,13 @@ D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\EntityFramewo
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\EntityFramework.SqlServer.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Bcl.AsyncInterfaces.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Cors.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.OAuth.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Web.Infrastructure.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Newtonsoft.Json.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Owin.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Buffers.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Memory.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Net.Http.Formatting.dll
@@ -139,6 +144,7 @@ D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Text.E
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Text.Json.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Threading.Tasks.Extensions.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.ValueTuple.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Cors.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Helpers.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Http.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Http.WebHost.dll
@@ -155,6 +161,10 @@ D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\EntityFramewo
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\EntityFramework.SqlServer.xml
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Bcl.AsyncInterfaces.xml
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Cors.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.OAuth.xml
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Newtonsoft.Json.xml
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Buffers.xml
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Memory.xml
@@ -180,3 +190,13 @@ D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\obj\Debug\WebApi.
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\obj\Debug\WebApi.csproj.CopyComplete
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\obj\Debug\WebApi.dll
 D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\obj\Debug\WebApi.pdb
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Http.Cors.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\System.Web.Http.Cors.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.AspNet.Identity.Core.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.Cookies.dll
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.AspNet.Identity.Core.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\000_OLD_FILES\000000_E-Commerce\asp.net\E-Commerce 1\WebApi\bin\Microsoft.Owin.Security.Cookies.xml

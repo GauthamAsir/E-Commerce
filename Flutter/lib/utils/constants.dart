@@ -41,6 +41,10 @@ const String kAddressNullError = "Please Enter your address";
 const String kCurrentUserId = "userid";
 const String kCurrentUserEmail = "userEmail";
 const String kStorageBoxName = "MyStorage";
+const String kCurrentUserRoleIdd = "roleId";
+
+const String kToken = "access_token";
+const String kTokenExpiresIn = "expires_in";
 
 final otpInputDecoration = InputDecoration(
   contentPadding:
@@ -93,3 +97,11 @@ double? getDoubleFromBox(String key) => GetStorage(kStorageBoxName).read(key);
 dynamic getDataFromBox(String key) => GetStorage(kStorageBoxName).read(key);
 
 void clearDataFromBox() async => GetStorage(kStorageBoxName).erase();
+
+Map<String, String> getHeaders() {
+  return {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': 'Bearer ${getStringFromBox(kToken)}',
+  };
+}

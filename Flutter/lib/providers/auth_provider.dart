@@ -15,7 +15,7 @@ class AuthProvider {
 
   Future<Map> login(String email, String password) async {
     var res = await authService.login(email, password);
-    res.update('status', (value) => (value as int) == 1 ? true : false,
+    res.update('status', (value) => int.parse(value) == 1 ? true : false,
         ifAbsent: () => false);
 
     return res;

@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:shop_app/components/custom_suffix_icon.dart';
 import 'package:shop_app/components/default_button.dart';
 import 'package:shop_app/components/form_error.dart';
-import 'package:shop_app/screens/complete_profile/complete_profile_screen.dart';
+import 'package:shop_app/screens/auth/complete_profile/complete_profile_screen.dart';
 import 'package:shop_app/utils/constants.dart';
 import 'package:shop_app/utils/size_config.dart';
 
